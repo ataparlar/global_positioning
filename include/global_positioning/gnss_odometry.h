@@ -29,12 +29,7 @@ class GnssOdometry : public rclcpp::Node
 public:
     GnssOdometry();
 
-    void gnss_pose_callback(
-            applanix_msgs::msg::NavigationSolutionGsof49::ConstSharedPtr &msg,
-            applanix_msgs::msg::NavigationPerformanceGsof50::ConstSharedPtr &rms);
 
-
-    message_filters::Subscriber<applanix_msgs::msg::NavigationPerformanceGsof50> rms_subscriber_time;
 
 
     typedef message_filters::sync_policies::ApproximateTime<
@@ -58,9 +53,14 @@ public:
 
     geometry_msgs::msg::PoseWithCovarianceStamped gnss_pose;
 
+
+private:
     void gnss_pose_callback(
             const applanix_msgs::msg::NavigationSolutionGsof49::ConstSharedPtr &msg,
-            const applanix_msgs::msg::NavigationPerformanceGsof50::ConstSharedPtr &rms)
+            const applanix_msgs::msg::NavigationPerformanceGsof50::ConstSharedPtr &rms);
+
+//    message_filters::Subscriber<applanix_msgs::msg::NavigationSolutionGsof49> lla_subscriber_time;
+//    message_filters::Subscriber<applanix_msgs::msg::NavigationPerformanceGsof50> rms_subscriber_time;
 
 
 
