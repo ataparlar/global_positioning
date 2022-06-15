@@ -1,0 +1,405 @@
+[0.000000] (-) TimerEvent: {}
+[0.000202] (global_positioning) JobQueued: {'identifier': 'global_positioning', 'dependencies': OrderedDict()}
+[0.000285] (global_positioning) JobStarted: {'identifier': 'global_positioning'}
+[0.012058] (global_positioning) JobProgress: {'identifier': 'global_positioning', 'progress': 'cmake'}
+[0.012436] (global_positioning) Command: {'cmd': ['/usr/bin/cmake', '/home/ataparlar/projects/leowork_ws/src/global_positioning', '-DCMAKE_BUILD_TYPE=RelWithDebInfo', '-DCMAKE_EXPORT_COMPILE_COMMANDS=1', '-DAMENT_CMAKE_SYMLINK_INSTALL=1', '-DCMAKE_INSTALL_PREFIX=/home/ataparlar/projects/leowork_ws/src/global_positioning/install/global_positioning'], 'cwd': '/home/ataparlar/projects/leowork_ws/src/global_positioning/build/global_positioning', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'ataparlar'), ('LC_TIME', 'tr_TR.UTF-8'), ('SSH_AGENT_PID', '1223'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/ataparlar/projects/leowork_ws/install/message_filters/lib:/home/ataparlar/projects/leowork_ws/install/applanix_msgs/lib:/usr/local/cuda/lib64:/opt/ros/galactic/opt/yaml_cpp_vendor/lib:/opt/ros/galactic/opt/rviz_ogre_vendor/lib:/opt/ros/galactic/lib/x86_64-linux-gnu:/opt/ros/galactic/lib'), ('HOME', '/home/ataparlar'), ('OLDPWD', '/home/ataparlar/projects/leowork_ws'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'tr_TR.UTF-8'), ('MANAGERPID', '990'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '3323'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/ataparlar/projects/leowork_ws/install'), ('ROS_DISTRO', 'galactic'), ('LOGNAME', 'ataparlar'), ('JOURNAL_STREAM', '8:40200'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'ataparlar'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/usr/local/cuda/bin:/opt/ros/galactic/bin:/home/ataparlar/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/ataparlar-pc:@/tmp/.ICE-unix/1258,unix/ataparlar-pc:/tmp/.ICE-unix/1258'), ('INVOCATION_ID', '9a14fe344b4343ffaaf9f890844f61c2'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'tr_TR.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'tr_TR.UTF-8'), ('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/ataparlar/projects/leowork_ws/install/message_filters:/home/ataparlar/projects/leowork_ws/install/global_positioning:/home/ataparlar/projects/leowork_ws/install/applanix_msgs:/opt/ros/galactic'), ('SHELL', '/bin/bash'), ('LC_NAME', 'tr_TR.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:efd021f5-aa44-471e-a1c6-4419a28fb464'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'tr_TR.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'tr_TR.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/ataparlar/projects/leowork_ws/src/global_positioning/build/global_positioning'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/ataparlar/projects/leowork_ws/install/message_filters/lib/python3.8/site-packages:/home/ataparlar/projects/leowork_ws/install/applanix_msgs/lib/python3.8/site-packages:/opt/ros/galactic/lib/python3.8/site-packages'), ('LC_NUMERIC', 'tr_TR.UTF-8'), ('LC_PAPER', 'tr_TR.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('CMAKE_PREFIX_PATH', '/home/ataparlar/projects/leowork_ws/install/message_filters:/home/ataparlar/projects/leowork_ws/install/global_positioning:/home/ataparlar/projects/leowork_ws/install/applanix_msgs:/opt/ros/galactic')]), 'shell': False}
+[0.099018] (-) TimerEvent: {}
+[0.199907] (-) TimerEvent: {}
+[0.287428] (global_positioning) StdoutLine: {'line': b'-- The C compiler identification is GNU 9.4.0\n'}
+[0.299994] (-) TimerEvent: {}
+[0.351372] (global_positioning) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 9.4.0\n'}
+[0.361496] (global_positioning) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc\n'}
+[0.400131] (-) TimerEvent: {}
+[0.441334] (global_positioning) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc -- works\n'}
+[0.443172] (global_positioning) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.500237] (-) TimerEvent: {}
+[0.520988] (global_positioning) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.535677] (global_positioning) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.536470] (global_positioning) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.540860] (global_positioning) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++\n'}
+[0.600365] (-) TimerEvent: {}
+[0.628626] (global_positioning) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ -- works\n'}
+[0.629896] (global_positioning) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.700472] (-) TimerEvent: {}
+[0.722029] (global_positioning) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.735812] (global_positioning) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.736390] (global_positioning) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.743544] (global_positioning) StdoutLine: {'line': b'-- Found ament_cmake: 1.1.5 (/opt/ros/galactic/share/ament_cmake/cmake)\n'}
+[0.777005] (global_positioning) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") \n'}
+[0.777248] (global_positioning) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[0.800582] (-) TimerEvent: {}
+[0.843113] (global_positioning) StdoutLine: {'line': b'-- Override CMake install command with custom implementation using symlinks instead of copying resources\n'}
+[0.890400] (global_positioning) StdoutLine: {'line': b'-- Found rclcpp: 9.2.1 (/opt/ros/galactic/share/rclcpp/cmake)\n'}
+[0.900686] (-) TimerEvent: {}
+[0.968880] (global_positioning) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.979571] (global_positioning) StdoutLine: {'line': b'-- Found rosidl_adapter: 2.2.2 (/opt/ros/galactic/share/rosidl_adapter/cmake)\n'}
+[1.000780] (-) TimerEvent: {}
+[1.078823] (global_positioning) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "1.1.1f")  \n'}
+[1.100869] (-) TimerEvent: {}
+[1.111452] (global_positioning) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/galactic/include  \n'}
+[1.200990] (-) TimerEvent: {}
+[1.209445] (global_positioning) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[1.294407] (global_positioning) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 3.3.1 (/opt/ros/galactic/share/rmw_implementation_cmake/cmake)\n'}
+[1.299406] (global_positioning) StdoutLine: {'line': b'-- Found rmw_cyclonedds_cpp: 0.22.5 (/opt/ros/galactic/share/rmw_cyclonedds_cpp/cmake)\n'}
+[1.301086] (-) TimerEvent: {}
+[1.325675] (global_positioning) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_cyclonedds_cpp' as default\n"}
+[1.327927] (global_positioning) StdoutLine: {'line': b'-- Looking for pthread.h\n'}
+[1.401199] (-) TimerEvent: {}
+[1.407684] (global_positioning) StdoutLine: {'line': b'-- Looking for pthread.h - found\n'}
+[1.408027] (global_positioning) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[1.489708] (global_positioning) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed\n'}
+[1.489975] (global_positioning) StdoutLine: {'line': b'-- Looking for pthread_create in pthreads\n'}
+[1.501318] (-) TimerEvent: {}
+[1.557897] (global_positioning) StdoutLine: {'line': b'-- Looking for pthread_create in pthreads - not found\n'}
+[1.558152] (global_positioning) StdoutLine: {'line': b'-- Looking for pthread_create in pthread\n'}
+[1.601413] (-) TimerEvent: {}
+[1.636291] (global_positioning) StdoutLine: {'line': b'-- Looking for pthread_create in pthread - found\n'}
+[1.637646] (global_positioning) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[1.701540] (-) TimerEvent: {}
+[1.801832] (-) TimerEvent: {}
+[1.828149] (global_positioning) StdoutLine: {'line': b'-- Found rclcpp_components: 9.2.1 (/opt/ros/galactic/share/rclcpp_components/cmake)\n'}
+[1.901948] (-) TimerEvent: {}
+[1.902916] (global_positioning) StdoutLine: {'line': b'-- Found sensor_msgs: 2.2.4 (/opt/ros/galactic/share/sensor_msgs/cmake)\n'}
+[2.002075] (-) TimerEvent: {}
+[2.048929] (global_positioning) StdoutLine: {'line': b'-- Found nav_msgs: 2.2.4 (/opt/ros/galactic/share/nav_msgs/cmake)\n'}
+[2.102245] (-) TimerEvent: {}
+[2.139411] (global_positioning) StdoutLine: {'line': b'-- Found applanix_msgs: 0.0.0 (/home/ataparlar/projects/leowork_ws/install/applanix_msgs/share/applanix_msgs/cmake)\n'}
+[2.184705] (global_positioning) StdoutLine: {'line': b'-- Found tf2: 0.17.3 (/opt/ros/galactic/share/tf2/cmake)\n'}
+[2.196968] (global_positioning) StdoutLine: {'line': b'-- Found tf2_ros: 0.17.3 (/opt/ros/galactic/share/tf2_ros/cmake)\n'}
+[2.202280] (-) TimerEvent: {}
+[2.302529] (-) TimerEvent: {}
+[2.402867] (-) TimerEvent: {}
+[2.503197] (-) TimerEvent: {}
+[2.541161] (global_positioning) StdoutLine: {'line': b'-- Reading /usr/local/lib/cmake/GeographicLib/geographiclib-config.cmake\n'}
+[2.541371] (global_positioning) StdoutLine: {'line': b'-- GeographicLib configuration, version 2.0\n'}
+[2.543685] (global_positioning) StdoutLine: {'line': b'--   ${GeographicLib_LIBRARIES} set to shared library\n'}
+[2.545912] (global_positioning) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.10.7 (/opt/ros/galactic/share/ament_lint_auto/cmake)\n'}
+[2.603316] (-) TimerEvent: {}
+[2.638783] (global_positioning) StdoutLine: {'line': b"-- Added test 'copyright' to check source files copyright and LICENSE\n"}
+[2.648288] (global_positioning) StdoutLine: {'line': b"-- Added test 'cppcheck' to perform static code analysis on C / C++ code\n"}
+[2.648513] (global_positioning) StdoutLine: {'line': b'-- Configured cppcheck include dirs: /home/ataparlar/projects/leowork_ws/src/global_positioning/include/\n'}
+[2.648637] (global_positioning) StdoutLine: {'line': b'-- Configured cppcheck exclude dirs and/or files: \n'}
+[2.657653] (global_positioning) StdoutLine: {'line': b"-- Added test 'cpplint' to check C / C++ code against the Google style\n"}
+[2.657772] (global_positioning) StdoutLine: {'line': b'-- Configured cpplint exclude dirs and/or files: \n'}
+[2.662079] (global_positioning) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[2.673218] (global_positioning) StdoutLine: {'line': b"-- Added test 'uncrustify' to check C / C++ code style\n"}
+[2.673361] (global_positioning) StdoutLine: {'line': b'-- Configured uncrustify additional arguments: \n'}
+[2.675084] (global_positioning) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[2.679643] (global_positioning) StdoutLine: {'line': b'-- Configuring done\n'}
+[2.695651] (global_positioning) StdoutLine: {'line': b'-- Generating done\n'}
+[2.697784] (global_positioning) StdoutLine: {'line': b'-- Build files have been written to: /home/ataparlar/projects/leowork_ws/src/global_positioning/build/global_positioning\n'}
+[2.703436] (-) TimerEvent: {}
+[2.706543] (global_positioning) CommandEnded: {'returncode': 0}
+[2.707422] (global_positioning) JobProgress: {'identifier': 'global_positioning', 'progress': 'build'}
+[2.709592] (global_positioning) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/ataparlar/projects/leowork_ws/src/global_positioning/build/global_positioning', '--', '-j8', '-l8'], 'cwd': '/home/ataparlar/projects/leowork_ws/src/global_positioning/build/global_positioning', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'ataparlar'), ('LC_TIME', 'tr_TR.UTF-8'), ('SSH_AGENT_PID', '1223'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/ataparlar/projects/leowork_ws/install/message_filters/lib:/home/ataparlar/projects/leowork_ws/install/applanix_msgs/lib:/usr/local/cuda/lib64:/opt/ros/galactic/opt/yaml_cpp_vendor/lib:/opt/ros/galactic/opt/rviz_ogre_vendor/lib:/opt/ros/galactic/lib/x86_64-linux-gnu:/opt/ros/galactic/lib'), ('HOME', '/home/ataparlar'), ('OLDPWD', '/home/ataparlar/projects/leowork_ws'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'tr_TR.UTF-8'), ('MANAGERPID', '990'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '3323'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/ataparlar/projects/leowork_ws/install'), ('ROS_DISTRO', 'galactic'), ('LOGNAME', 'ataparlar'), ('JOURNAL_STREAM', '8:40200'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'ataparlar'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/usr/local/cuda/bin:/opt/ros/galactic/bin:/home/ataparlar/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/ataparlar-pc:@/tmp/.ICE-unix/1258,unix/ataparlar-pc:/tmp/.ICE-unix/1258'), ('INVOCATION_ID', '9a14fe344b4343ffaaf9f890844f61c2'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'tr_TR.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'tr_TR.UTF-8'), ('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/ataparlar/projects/leowork_ws/install/message_filters:/home/ataparlar/projects/leowork_ws/install/global_positioning:/home/ataparlar/projects/leowork_ws/install/applanix_msgs:/opt/ros/galactic'), ('SHELL', '/bin/bash'), ('LC_NAME', 'tr_TR.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:efd021f5-aa44-471e-a1c6-4419a28fb464'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'tr_TR.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'tr_TR.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/ataparlar/projects/leowork_ws/src/global_positioning/build/global_positioning'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/ataparlar/projects/leowork_ws/install/message_filters/lib/python3.8/site-packages:/home/ataparlar/projects/leowork_ws/install/applanix_msgs/lib/python3.8/site-packages:/opt/ros/galactic/lib/python3.8/site-packages'), ('LC_NUMERIC', 'tr_TR.UTF-8'), ('LC_PAPER', 'tr_TR.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('CMAKE_PREFIX_PATH', '/home/ataparlar/projects/leowork_ws/install/message_filters:/home/ataparlar/projects/leowork_ws/install/global_positioning:/home/ataparlar/projects/leowork_ws/install/applanix_msgs:/opt/ros/galactic')]), 'shell': False}
+[2.759356] (global_positioning) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target gnss_odometry\x1b[0m\n'}
+[2.803540] (-) TimerEvent: {}
+[2.824886] (global_positioning) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/gnss_odometry.dir/src/gnss_odometry.cpp.o\x1b[0m\n'}
+[2.903668] (-) TimerEvent: {}
+[3.003960] (-) TimerEvent: {}
+[3.104291] (-) TimerEvent: {}
+[3.204672] (-) TimerEvent: {}
+[3.304996] (-) TimerEvent: {}
+[3.405305] (-) TimerEvent: {}
+[3.505591] (-) TimerEvent: {}
+[3.605880] (-) TimerEvent: {}
+[3.706178] (-) TimerEvent: {}
+[3.806489] (-) TimerEvent: {}
+[3.906849] (-) TimerEvent: {}
+[4.007111] (-) TimerEvent: {}
+[4.107440] (-) TimerEvent: {}
+[4.207748] (-) TimerEvent: {}
+[4.308036] (-) TimerEvent: {}
+[4.408330] (-) TimerEvent: {}
+[4.508658] (-) TimerEvent: {}
+[4.608950] (-) TimerEvent: {}
+[4.709250] (-) TimerEvent: {}
+[4.809560] (-) TimerEvent: {}
+[4.909828] (-) TimerEvent: {}
+[5.010102] (-) TimerEvent: {}
+[5.110379] (-) TimerEvent: {}
+[5.210686] (-) TimerEvent: {}
+[5.310969] (-) TimerEvent: {}
+[5.411252] (-) TimerEvent: {}
+[5.511508] (-) TimerEvent: {}
+[5.611751] (-) TimerEvent: {}
+[5.712094] (-) TimerEvent: {}
+[5.812374] (-) TimerEvent: {}
+[5.912667] (-) TimerEvent: {}
+[6.012943] (-) TimerEvent: {}
+[6.113230] (-) TimerEvent: {}
+[6.213494] (-) TimerEvent: {}
+[6.313787] (-) TimerEvent: {}
+[6.414092] (-) TimerEvent: {}
+[6.514400] (-) TimerEvent: {}
+[6.614716] (-) TimerEvent: {}
+[6.715017] (-) TimerEvent: {}
+[6.815294] (-) TimerEvent: {}
+[6.915622] (-) TimerEvent: {}
+[7.015920] (-) TimerEvent: {}
+[7.116213] (-) TimerEvent: {}
+[7.216498] (-) TimerEvent: {}
+[7.316724] (-) TimerEvent: {}
+[7.417039] (-) TimerEvent: {}
+[7.517332] (-) TimerEvent: {}
+[7.617652] (-) TimerEvent: {}
+[7.717948] (-) TimerEvent: {}
+[7.818226] (-) TimerEvent: {}
+[7.918512] (-) TimerEvent: {}
+[8.018774] (-) TimerEvent: {}
+[8.119082] (-) TimerEvent: {}
+[8.219369] (-) TimerEvent: {}
+[8.319716] (-) TimerEvent: {}
+[8.419988] (-) TimerEvent: {}
+[8.520261] (-) TimerEvent: {}
+[8.620601] (-) TimerEvent: {}
+[8.720889] (-) TimerEvent: {}
+[8.821148] (-) TimerEvent: {}
+[8.921410] (-) TimerEvent: {}
+[9.021715] (-) TimerEvent: {}
+[9.121999] (-) TimerEvent: {}
+[9.222290] (-) TimerEvent: {}
+[9.322555] (-) TimerEvent: {}
+[9.422853] (-) TimerEvent: {}
+[9.523171] (-) TimerEvent: {}
+[9.623497] (-) TimerEvent: {}
+[9.723813] (-) TimerEvent: {}
+[9.824128] (-) TimerEvent: {}
+[9.924388] (-) TimerEvent: {}
+[10.024693] (-) TimerEvent: {}
+[10.124956] (-) TimerEvent: {}
+[10.225221] (-) TimerEvent: {}
+[10.325555] (-) TimerEvent: {}
+[10.425891] (-) TimerEvent: {}
+[10.526190] (-) TimerEvent: {}
+[10.626489] (-) TimerEvent: {}
+[10.726783] (-) TimerEvent: {}
+[10.827172] (-) TimerEvent: {}
+[10.927515] (-) TimerEvent: {}
+[11.027867] (-) TimerEvent: {}
+[11.128230] (-) TimerEvent: {}
+[11.228575] (-) TimerEvent: {}
+[11.328938] (-) TimerEvent: {}
+[11.429296] (-) TimerEvent: {}
+[11.529671] (-) TimerEvent: {}
+[11.630038] (-) TimerEvent: {}
+[11.730375] (-) TimerEvent: {}
+[11.830747] (-) TimerEvent: {}
+[11.931094] (-) TimerEvent: {}
+[12.031400] (-) TimerEvent: {}
+[12.131952] (-) TimerEvent: {}
+[12.232326] (-) TimerEvent: {}
+[12.332743] (-) TimerEvent: {}
+[12.433123] (-) TimerEvent: {}
+[12.533479] (-) TimerEvent: {}
+[12.633844] (-) TimerEvent: {}
+[12.734243] (-) TimerEvent: {}
+[12.834510] (-) TimerEvent: {}
+[12.934869] (-) TimerEvent: {}
+[13.035218] (-) TimerEvent: {}
+[13.135593] (-) TimerEvent: {}
+[13.235950] (-) TimerEvent: {}
+[13.336323] (-) TimerEvent: {}
+[13.436634] (-) TimerEvent: {}
+[13.537020] (-) TimerEvent: {}
+[13.637301] (-) TimerEvent: {}
+[13.737607] (-) TimerEvent: {}
+[13.837904] (-) TimerEvent: {}
+[13.938196] (-) TimerEvent: {}
+[14.038489] (-) TimerEvent: {}
+[14.138907] (-) TimerEvent: {}
+[14.239249] (-) TimerEvent: {}
+[14.339592] (-) TimerEvent: {}
+[14.439959] (-) TimerEvent: {}
+[14.540306] (-) TimerEvent: {}
+[14.640710] (-) TimerEvent: {}
+[14.741039] (-) TimerEvent: {}
+[14.841395] (-) TimerEvent: {}
+[14.941705] (-) TimerEvent: {}
+[15.042058] (-) TimerEvent: {}
+[15.142369] (-) TimerEvent: {}
+[15.242647] (-) TimerEvent: {}
+[15.343049] (-) TimerEvent: {}
+[15.443330] (-) TimerEvent: {}
+[15.543661] (-) TimerEvent: {}
+[15.644001] (-) TimerEvent: {}
+[15.744309] (-) TimerEvent: {}
+[15.844701] (-) TimerEvent: {}
+[15.945040] (-) TimerEvent: {}
+[16.045392] (-) TimerEvent: {}
+[16.145703] (-) TimerEvent: {}
+[16.246042] (-) TimerEvent: {}
+[16.346384] (-) TimerEvent: {}
+[16.446662] (-) TimerEvent: {}
+[16.546990] (-) TimerEvent: {}
+[16.647306] (-) TimerEvent: {}
+[16.747567] (-) TimerEvent: {}
+[16.847916] (-) TimerEvent: {}
+[16.948263] (-) TimerEvent: {}
+[17.048532] (-) TimerEvent: {}
+[17.148904] (-) TimerEvent: {}
+[17.249264] (-) TimerEvent: {}
+[17.349633] (-) TimerEvent: {}
+[17.449924] (-) TimerEvent: {}
+[17.550221] (-) TimerEvent: {}
+[17.650536] (-) TimerEvent: {}
+[17.750892] (-) TimerEvent: {}
+[17.851250] (-) TimerEvent: {}
+[17.951581] (-) TimerEvent: {}
+[18.051879] (-) TimerEvent: {}
+[18.152225] (-) TimerEvent: {}
+[18.252523] (-) TimerEvent: {}
+[18.352833] (-) TimerEvent: {}
+[18.453103] (-) TimerEvent: {}
+[18.553391] (-) TimerEvent: {}
+[18.653707] (-) TimerEvent: {}
+[18.754052] (-) TimerEvent: {}
+[18.854451] (-) TimerEvent: {}
+[18.954788] (-) TimerEvent: {}
+[19.055118] (-) TimerEvent: {}
+[19.155487] (-) TimerEvent: {}
+[19.255908] (-) TimerEvent: {}
+[19.356299] (-) TimerEvent: {}
+[19.456542] (-) TimerEvent: {}
+[19.556852] (-) TimerEvent: {}
+[19.657173] (-) TimerEvent: {}
+[19.757538] (-) TimerEvent: {}
+[19.857918] (-) TimerEvent: {}
+[19.958261] (-) TimerEvent: {}
+[20.058614] (-) TimerEvent: {}
+[20.158909] (-) TimerEvent: {}
+[20.259265] (-) TimerEvent: {}
+[20.359582] (-) TimerEvent: {}
+[20.459872] (-) TimerEvent: {}
+[20.560227] (-) TimerEvent: {}
+[20.660544] (-) TimerEvent: {}
+[20.760884] (-) TimerEvent: {}
+[20.861222] (-) TimerEvent: {}
+[20.961560] (-) TimerEvent: {}
+[21.061914] (-) TimerEvent: {}
+[21.162284] (-) TimerEvent: {}
+[21.262630] (-) TimerEvent: {}
+[21.362936] (-) TimerEvent: {}
+[21.463225] (-) TimerEvent: {}
+[21.563511] (-) TimerEvent: {}
+[21.663867] (-) TimerEvent: {}
+[21.764200] (-) TimerEvent: {}
+[21.864518] (-) TimerEvent: {}
+[21.964852] (-) TimerEvent: {}
+[22.065211] (-) TimerEvent: {}
+[22.165525] (-) TimerEvent: {}
+[22.265839] (-) TimerEvent: {}
+[22.366140] (-) TimerEvent: {}
+[22.466425] (-) TimerEvent: {}
+[22.566760] (-) TimerEvent: {}
+[22.667062] (-) TimerEvent: {}
+[22.767381] (-) TimerEvent: {}
+[22.867703] (-) TimerEvent: {}
+[22.968030] (-) TimerEvent: {}
+[23.068410] (-) TimerEvent: {}
+[23.168743] (-) TimerEvent: {}
+[23.269086] (-) TimerEvent: {}
+[23.369452] (-) TimerEvent: {}
+[23.469736] (-) TimerEvent: {}
+[23.570106] (-) TimerEvent: {}
+[23.670381] (-) TimerEvent: {}
+[23.770652] (-) TimerEvent: {}
+[23.870998] (-) TimerEvent: {}
+[23.971336] (-) TimerEvent: {}
+[24.071642] (-) TimerEvent: {}
+[24.171953] (-) TimerEvent: {}
+[24.272296] (-) TimerEvent: {}
+[24.372627] (-) TimerEvent: {}
+[24.472909] (-) TimerEvent: {}
+[24.573225] (-) TimerEvent: {}
+[24.673588] (-) TimerEvent: {}
+[24.773883] (-) TimerEvent: {}
+[24.874296] (-) TimerEvent: {}
+[24.974630] (-) TimerEvent: {}
+[25.074957] (-) TimerEvent: {}
+[25.175370] (-) TimerEvent: {}
+[25.275743] (-) TimerEvent: {}
+[25.376085] (-) TimerEvent: {}
+[25.476487] (-) TimerEvent: {}
+[25.576763] (-) TimerEvent: {}
+[25.677029] (-) TimerEvent: {}
+[25.777324] (-) TimerEvent: {}
+[25.877615] (-) TimerEvent: {}
+[25.977919] (-) TimerEvent: {}
+[26.078221] (-) TimerEvent: {}
+[26.178482] (-) TimerEvent: {}
+[26.278740] (-) TimerEvent: {}
+[26.379022] (-) TimerEvent: {}
+[26.479285] (-) TimerEvent: {}
+[26.579645] (-) TimerEvent: {}
+[26.680321] (-) TimerEvent: {}
+[26.780930] (-) TimerEvent: {}
+[26.881483] (-) TimerEvent: {}
+[26.982016] (-) TimerEvent: {}
+[27.082544] (-) TimerEvent: {}
+[27.183171] (-) TimerEvent: {}
+[27.283457] (-) TimerEvent: {}
+[27.383744] (-) TimerEvent: {}
+[27.484040] (-) TimerEvent: {}
+[27.584304] (-) TimerEvent: {}
+[27.684607] (-) TimerEvent: {}
+[27.784902] (-) TimerEvent: {}
+[27.885166] (-) TimerEvent: {}
+[27.985461] (-) TimerEvent: {}
+[28.085753] (-) TimerEvent: {}
+[28.186043] (-) TimerEvent: {}
+[28.286343] (-) TimerEvent: {}
+[28.386661] (-) TimerEvent: {}
+[28.486971] (-) TimerEvent: {}
+[28.587277] (-) TimerEvent: {}
+[28.687547] (-) TimerEvent: {}
+[28.787869] (-) TimerEvent: {}
+[28.888173] (-) TimerEvent: {}
+[28.988485] (-) TimerEvent: {}
+[29.088772] (-) TimerEvent: {}
+[29.189080] (-) TimerEvent: {}
+[29.289383] (-) TimerEvent: {}
+[29.389677] (-) TimerEvent: {}
+[29.489983] (-) TimerEvent: {}
+[29.590294] (-) TimerEvent: {}
+[29.690576] (-) TimerEvent: {}
+[29.790882] (-) TimerEvent: {}
+[29.891193] (-) TimerEvent: {}
+[29.991520] (-) TimerEvent: {}
+[30.091877] (-) TimerEvent: {}
+[30.192250] (-) TimerEvent: {}
+[30.292560] (-) TimerEvent: {}
+[30.392841] (-) TimerEvent: {}
+[30.469393] (global_positioning) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable gnss_odometry\x1b[0m\n'}
+[30.492958] (-) TimerEvent: {}
+[30.593247] (-) TimerEvent: {}
+[30.693574] (-) TimerEvent: {}
+[30.793892] (-) TimerEvent: {}
+[30.876467] (global_positioning) StdoutLine: {'line': b'[100%] Built target gnss_odometry\n'}
+[30.887673] (global_positioning) CommandEnded: {'returncode': 0}
+[30.894046] (-) TimerEvent: {}
+[30.913730] (global_positioning) JobProgress: {'identifier': 'global_positioning', 'progress': 'install'}
+[30.925062] (global_positioning) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/ataparlar/projects/leowork_ws/src/global_positioning/build/global_positioning'], 'cwd': '/home/ataparlar/projects/leowork_ws/src/global_positioning/build/global_positioning', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'ataparlar'), ('LC_TIME', 'tr_TR.UTF-8'), ('SSH_AGENT_PID', '1223'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/ataparlar/projects/leowork_ws/install/message_filters/lib:/home/ataparlar/projects/leowork_ws/install/applanix_msgs/lib:/usr/local/cuda/lib64:/opt/ros/galactic/opt/yaml_cpp_vendor/lib:/opt/ros/galactic/opt/rviz_ogre_vendor/lib:/opt/ros/galactic/lib/x86_64-linux-gnu:/opt/ros/galactic/lib'), ('HOME', '/home/ataparlar'), ('OLDPWD', '/home/ataparlar/projects/leowork_ws'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'tr_TR.UTF-8'), ('MANAGERPID', '990'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '3323'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/ataparlar/projects/leowork_ws/install'), ('ROS_DISTRO', 'galactic'), ('LOGNAME', 'ataparlar'), ('JOURNAL_STREAM', '8:40200'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'ataparlar'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/usr/local/cuda/bin:/opt/ros/galactic/bin:/home/ataparlar/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/ataparlar-pc:@/tmp/.ICE-unix/1258,unix/ataparlar-pc:/tmp/.ICE-unix/1258'), ('INVOCATION_ID', '9a14fe344b4343ffaaf9f890844f61c2'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'tr_TR.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'tr_TR.UTF-8'), ('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/ataparlar/projects/leowork_ws/install/message_filters:/home/ataparlar/projects/leowork_ws/install/global_positioning:/home/ataparlar/projects/leowork_ws/install/applanix_msgs:/opt/ros/galactic'), ('SHELL', '/bin/bash'), ('LC_NAME', 'tr_TR.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:efd021f5-aa44-471e-a1c6-4419a28fb464'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'tr_TR.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'tr_TR.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/ataparlar/projects/leowork_ws/src/global_positioning/build/global_positioning'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/ataparlar/projects/leowork_ws/install/message_filters/lib/python3.8/site-packages:/home/ataparlar/projects/leowork_ws/install/applanix_msgs/lib/python3.8/site-packages:/opt/ros/galactic/lib/python3.8/site-packages'), ('LC_NUMERIC', 'tr_TR.UTF-8'), ('LC_PAPER', 'tr_TR.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('CMAKE_PREFIX_PATH', '/home/ataparlar/projects/leowork_ws/install/message_filters:/home/ataparlar/projects/leowork_ws/install/global_positioning:/home/ataparlar/projects/leowork_ws/install/applanix_msgs:/opt/ros/galactic')]), 'shell': False}
+[30.934236] (global_positioning) StdoutLine: {'line': b'-- Install configuration: "RelWithDebInfo"\n'}
+[30.934737] (global_positioning) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[30.935303] (global_positioning) StdoutLine: {'line': b'-- Symlinking: /home/ataparlar/projects/leowork_ws/src/global_positioning/install/global_positioning/lib/global_positioning/gnss_odometry\n'}
+[30.945232] (global_positioning) StdoutLine: {'line': b'-- Symlinking: /home/ataparlar/projects/leowork_ws/src/global_positioning/install/global_positioning/share/ament_index/resource_index/package_run_dependencies/global_positioning\n'}
+[30.955144] (global_positioning) StdoutLine: {'line': b'-- Symlinking: /home/ataparlar/projects/leowork_ws/src/global_positioning/install/global_positioning/share/ament_index/resource_index/parent_prefix_path/global_positioning\n'}
+[30.965952] (global_positioning) StdoutLine: {'line': b'-- Symlinking: /home/ataparlar/projects/leowork_ws/src/global_positioning/install/global_positioning/share/global_positioning/environment/ament_prefix_path.sh\n'}
+[30.975658] (global_positioning) StdoutLine: {'line': b'-- Symlinking: /home/ataparlar/projects/leowork_ws/src/global_positioning/install/global_positioning/share/global_positioning/environment/ament_prefix_path.dsv\n'}
+[30.985262] (global_positioning) StdoutLine: {'line': b'-- Symlinking: /home/ataparlar/projects/leowork_ws/src/global_positioning/install/global_positioning/share/global_positioning/environment/path.sh\n'}
+[30.994135] (-) TimerEvent: {}
+[30.994880] (global_positioning) StdoutLine: {'line': b'-- Symlinking: /home/ataparlar/projects/leowork_ws/src/global_positioning/install/global_positioning/share/global_positioning/environment/path.dsv\n'}
+[31.004630] (global_positioning) StdoutLine: {'line': b'-- Symlinking: /home/ataparlar/projects/leowork_ws/src/global_positioning/install/global_positioning/share/global_positioning/local_setup.bash\n'}
+[31.014302] (global_positioning) StdoutLine: {'line': b'-- Symlinking: /home/ataparlar/projects/leowork_ws/src/global_positioning/install/global_positioning/share/global_positioning/local_setup.sh\n'}
+[31.023964] (global_positioning) StdoutLine: {'line': b'-- Symlinking: /home/ataparlar/projects/leowork_ws/src/global_positioning/install/global_positioning/share/global_positioning/local_setup.zsh\n'}
+[31.034420] (global_positioning) StdoutLine: {'line': b'-- Symlinking: /home/ataparlar/projects/leowork_ws/src/global_positioning/install/global_positioning/share/global_positioning/local_setup.dsv\n'}
+[31.044113] (global_positioning) StdoutLine: {'line': b'-- Symlinking: /home/ataparlar/projects/leowork_ws/src/global_positioning/install/global_positioning/share/global_positioning/package.dsv\n'}
+[31.055237] (global_positioning) StdoutLine: {'line': b'-- Symlinking: /home/ataparlar/projects/leowork_ws/src/global_positioning/install/global_positioning/share/ament_index/resource_index/packages/global_positioning\n'}
+[31.065239] (global_positioning) StdoutLine: {'line': b'-- Symlinking: /home/ataparlar/projects/leowork_ws/src/global_positioning/install/global_positioning/share/global_positioning/cmake/global_positioningConfig.cmake\n'}
+[31.074762] (global_positioning) StdoutLine: {'line': b'-- Symlinking: /home/ataparlar/projects/leowork_ws/src/global_positioning/install/global_positioning/share/global_positioning/cmake/global_positioningConfig-version.cmake\n'}
+[31.084507] (global_positioning) StdoutLine: {'line': b'-- Symlinking: /home/ataparlar/projects/leowork_ws/src/global_positioning/install/global_positioning/share/global_positioning/package.xml\n'}
+[31.094252] (-) TimerEvent: {}
+[31.095536] (global_positioning) CommandEnded: {'returncode': 0}
+[31.144133] (global_positioning) JobEnded: {'identifier': 'global_positioning', 'rc': 0}
+[31.145027] (-) EventReactorShutdown: {}

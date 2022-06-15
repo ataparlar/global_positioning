@@ -29,43 +29,47 @@ class GnssOdometry : public rclcpp::Node
 public:
     GnssOdometry();
 
-    typedef message_filters::sync_policies::ApproximateTime<
-            applanix_msgs::msg::NavigationSolutionGsof49,
-            applanix_msgs::msg::NavigationPerformanceGsof50> approximate_policy;
-
-    typedef message_filters::Synchronizer<approximate_policy> Sync;
-    std::shared_ptr<Sync> sync_;
-
-
-//    message_filters::Synchronizer<approximate_policy> syncApproximate(
-//            approximate_policy,
-//            message_filters::Subscriber<applanix_msgs::msg::NavigationSolutionGsof49>,
-//            message_filters::Subscriber<applanix_msgs::msg::NavigationPerformanceGsof50>
-//            );
-
-
-    GeographicLib::LocalCartesian locart;
-    GeographicLib::Geocentric earth;
-    tf2::Quaternion q;
-    double x, y, z;
-    int array_count;
-
-    rclcpp::Publisher<geometry_msgs::msg::PoseWithCovarianceStamped>::SharedPtr gnss_pose_publisher;
-
-    geometry_msgs::msg::PoseWithCovarianceStamped gnss_pose;
-
 
 private:
+    // callback function is declared
     void gnss_pose_callback(
             const applanix_msgs::msg::NavigationSolutionGsof49::ConstSharedPtr &msg,
             const applanix_msgs::msg::NavigationPerformanceGsof50::ConstSharedPtr &rms);
 
+    // approximate policy type defined
+    // will be used in synchronizer
+    typedef message_filters::sync_policies::ApproximateTime<
+            applanix_msgs::msg::NavigationSolutionGsof49,
+            applanix_msgs::msg::NavigationPerformanceGsof50> approximate_policy;
+
+    // made a synchronizer type which uses appriximate policy
+    typedef message_filters::Synchronizer<approximate_policy> Sync;
+
+    // make this synchronizer a shared_ptr in order to reach the callback function
+    // when the node will be run **********
+    std::shared_ptr<Sync> sync_;
+
+    // topic subscribers declared from message_filters
     message_filters::Subscriber<applanix_msgs::msg::NavigationSolutionGsof49> lla_subscriber_time;
     message_filters::Subscriber<applanix_msgs::msg::NavigationPerformanceGsof50> rms_subscriber_time;
 
-//    std::unique_ptr<
-//            message_filters::Subscriber<applanix_msgs::msg::NavigationSolutionGsof49>,
-//            message_filters::Subscriber<applanix_msgs::msg::NavigationPerformanceGsof50>> ptr_subs;
+    // local cartesian coordinate system declared
+    GeographicLib::LocalCartesian locart;
+
+    // earth model for local cartesian is declared
+    GeographicLib::Geocentric earth;
+
+    // some variables for local cartesian calculations
+    double x, y, z;
+    int array_count;
+
+    // quaternion declared for posewithcovariancestamped message
+    tf2::Quaternion q;
+    // posewithcovariancestamped message declared
+    geometry_msgs::msg::PoseWithCovarianceStamped gnss_pose;
+
+    // ROS2 publisher declared
+    rclcpp::Publisher<geometry_msgs::msg::PoseWithCovarianceStamped>::SharedPtr gnss_pose_publisher;
 
 };
 

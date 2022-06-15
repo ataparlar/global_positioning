@@ -3,22 +3,14 @@
 //
 #include <memory>
 #include <cmath>
-
 #include <string>
 #include <vector>
 #include <functional>
 
 #include "rclcpp/rclcpp.hpp"
-#include "std_msgs/msg/string.hpp"
 #include "geometry_msgs/msg/pose_with_covariance_stamped.hpp"
-#include "geometry_msgs/msg/pose_array.hpp"
 #include "applanix_msgs/msg/navigation_solution_gsof49.hpp"
 #include "applanix_msgs/msg/navigation_performance_gsof50.hpp"
-#include "nav_msgs/msg/path.hpp"
-#include "tf2_ros/static_transform_broadcaster.h"
-#include "tf2/LinearMath/Quaternion.h"
-#include <message_filters/subscriber.h>
-#include <message_filters/time_synchronizer.h>
 #include "message_filters/sync_policies/approximate_time.h"
 #include "global_positioning/gnss_odometry.h"
 
@@ -28,47 +20,24 @@
 
 GnssOdometry::GnssOdometry() : Node("gnss_odometry")
 {
+    // subscribers from message_filters initialized
+    lla_subscriber_time.subscribe(
+            this,
+            "/lvx_client/gsof/ins_solution_49");
+    rms_subscriber_time.subscribe(
+            this,
+            "/lvx_client/gsof/ins_solution_rms_50");
 
-//    message_filters::Subscriber<applanix_msgs::msg::NavigationSolutionGsof49> lla_subscriber_time(
-//            this,
-//            "/lvx_client/gsof/ins_solution_49");
-//
-//
-//    message_filters::Subscriber<applanix_msgs::msg::NavigationPerformanceGsof50> rms_subscriber_time(
-//            this,
-//            "/lvx_client/gsof/ins_solution_rms_50");
-
-
-
-//    message_filters::syncApproximate(
-//            approximate_policy(10),
-//            lla_subscriber_time,
-//            rms_subscriber_time);
-
-    message_filters::Synchronizer<GnssOdometry::approximate_policy> syncApproximate(
-            approximate_policy(10),
-            lla_subscriber_time,
-            rms_subscriber_time)
-            ;
-
-
-//    syncApproximate.registerCallback(
-//            &GnssOdometry::gnss_pose_callback,
-//            this
-//    );
-
-    GnssOdometry::lla_subscriber_time.subscribe(this, "/lvx_client/gsof/ins_solution_49");
-    GnssOdometry::rms_subscriber_time.subscribe(this, "/lvx_client/gsof/ins_solution_rms_50");
-
-    //GnssOdometry::ptr_subs.
-
+    // synchronizer defined here with reset() function.
+    // initialized with a new pointer object inside
+    // with appriximate policy
     sync_.reset(
             new Sync(
                     approximate_policy(10),
                     GnssOdometry::lla_subscriber_time,
                     GnssOdometry::rms_subscriber_time));
 
-
+    // callback is called here.
     sync_->registerCallback(
             std::bind(
                     &GnssOdometry::gnss_pose_callback,
@@ -76,39 +45,30 @@ GnssOdometry::GnssOdometry() : Node("gnss_odometry")
                     std::placeholders::_1,
                     std::placeholders::_2));
 
+    // publisher initialized
+    gnss_pose_publisher = this->create_publisher<geometry_msgs::msg::PoseWithCovarianceStamped>(
+            "/gnss/pose",
+            10);
 
-//            message_filters::TimeSynchronizer<
-//                    applanix_msgs::msg::NavigationSolutionGsof49,
-//                    applanix_msgs::msg::NavigationPerformanceGsof50>
-//    sync(
-//            lla_subscriber_time,
-//            rms_subscriber_time,
-//            1000);
+    // defined the earth model and local cartesian in order to
+    // point an origin
+    GeographicLib::Geocentric earth(GeographicLib::Constants::WGS84_a(), GeographicLib::Constants::WGS84_f());
+    GeographicLib::LocalCartesian locart(
+            0,
+            0,
+            0,
+            earth);
 
-
-        gnss_pose_publisher = this->create_publisher<geometry_msgs::msg::PoseWithCovarianceStamped>(
-                "/gnss/pose",
-                10);
-        // gnss_path_publisher = this->create_publisher<nav_msgs::msg::Path>(
-        //         "/gnss/path",
-        //         1);
-
-
-        GeographicLib::Geocentric earth(GeographicLib::Constants::WGS84_a(), GeographicLib::Constants::WGS84_f());
-        GeographicLib::LocalCartesian locart(
-                0,
-                0,
-                0,
-                earth);
-
-        RCLCPP_INFO(this->get_logger(), "array count '%d'", array_count);
-
+    RCLCPP_INFO(this->get_logger(), "array count '%d'", array_count);
 }
 
+// defined the callback function out of the constructor
 void GnssOdometry::gnss_pose_callback(
         const applanix_msgs::msg::NavigationSolutionGsof49::ConstSharedPtr &msg,
         const applanix_msgs::msg::NavigationPerformanceGsof50::ConstSharedPtr &rms) {
 
+    // if array_count == 0, initialize again the local cartesian origin
+    // with the first message lat long altitude and orientation message
     if(array_count==0)
     {
         GeographicLib::Geocentric earth(GeographicLib::Constants::WGS84_a(), GeographicLib::Constants::WGS84_f());
@@ -134,6 +94,8 @@ void GnssOdometry::gnss_pose_callback(
 
         array_count++;
     }
+    // else, other values will be pushed to topic
+    // as a message which contains the position and orientation information
     else
     {
         locart.Forward(msg->lla.latitude,

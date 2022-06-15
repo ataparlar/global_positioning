@@ -1,0 +1,87 @@
+[0.013s] Invoking command in '/home/ataparlar/projects/leowork_ws/src/global_positioning/build/global_positioning': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/galactic /usr/bin/cmake /home/ataparlar/projects/leowork_ws/src/global_positioning -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/ataparlar/projects/leowork_ws/src/global_positioning/install/global_positioning
+[0.287s] -- The C compiler identification is GNU 9.4.0
+[0.351s] -- The CXX compiler identification is GNU 9.4.0
+[0.361s] -- Check for working C compiler: /usr/bin/cc
+[0.441s] -- Check for working C compiler: /usr/bin/cc -- works
+[0.443s] -- Detecting C compiler ABI info
+[0.521s] -- Detecting C compiler ABI info - done
+[0.535s] -- Detecting C compile features
+[0.536s] -- Detecting C compile features - done
+[0.541s] -- Check for working CXX compiler: /usr/bin/c++
+[0.628s] -- Check for working CXX compiler: /usr/bin/c++ -- works
+[0.630s] -- Detecting CXX compiler ABI info
+[0.722s] -- Detecting CXX compiler ABI info - done
+[0.736s] -- Detecting CXX compile features
+[0.736s] -- Detecting CXX compile features - done
+[0.743s] -- Found ament_cmake: 1.1.5 (/opt/ros/galactic/share/ament_cmake/cmake)
+[0.777s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") 
+[0.777s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.843s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.890s] -- Found rclcpp: 9.2.1 (/opt/ros/galactic/share/rclcpp/cmake)
+[0.969s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.979s] -- Found rosidl_adapter: 2.2.2 (/opt/ros/galactic/share/rosidl_adapter/cmake)
+[1.079s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "1.1.1f")  
+[1.111s] -- Found FastRTPS: /opt/ros/galactic/include  
+[1.209s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.294s] -- Found rmw_implementation_cmake: 3.3.1 (/opt/ros/galactic/share/rmw_implementation_cmake/cmake)
+[1.299s] -- Found rmw_cyclonedds_cpp: 0.22.5 (/opt/ros/galactic/share/rmw_cyclonedds_cpp/cmake)
+[1.325s] -- Using RMW implementation 'rmw_cyclonedds_cpp' as default
+[1.328s] -- Looking for pthread.h
+[1.407s] -- Looking for pthread.h - found
+[1.408s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[1.490s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+[1.490s] -- Looking for pthread_create in pthreads
+[1.558s] -- Looking for pthread_create in pthreads - not found
+[1.558s] -- Looking for pthread_create in pthread
+[1.636s] -- Looking for pthread_create in pthread - found
+[1.637s] -- Found Threads: TRUE  
+[1.828s] -- Found rclcpp_components: 9.2.1 (/opt/ros/galactic/share/rclcpp_components/cmake)
+[1.903s] -- Found sensor_msgs: 2.2.4 (/opt/ros/galactic/share/sensor_msgs/cmake)
+[2.049s] -- Found nav_msgs: 2.2.4 (/opt/ros/galactic/share/nav_msgs/cmake)
+[2.139s] -- Found applanix_msgs: 0.0.0 (/home/ataparlar/projects/leowork_ws/install/applanix_msgs/share/applanix_msgs/cmake)
+[2.185s] -- Found tf2: 0.17.3 (/opt/ros/galactic/share/tf2/cmake)
+[2.197s] -- Found tf2_ros: 0.17.3 (/opt/ros/galactic/share/tf2_ros/cmake)
+[2.541s] -- Reading /usr/local/lib/cmake/GeographicLib/geographiclib-config.cmake
+[2.541s] -- GeographicLib configuration, version 2.0
+[2.543s] --   ${GeographicLib_LIBRARIES} set to shared library
+[2.546s] -- Found ament_lint_auto: 0.10.7 (/opt/ros/galactic/share/ament_lint_auto/cmake)
+[2.639s] -- Added test 'copyright' to check source files copyright and LICENSE
+[2.648s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[2.648s] -- Configured cppcheck include dirs: /home/ataparlar/projects/leowork_ws/src/global_positioning/include/
+[2.648s] -- Configured cppcheck exclude dirs and/or files: 
+[2.657s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[2.658s] -- Configured cpplint exclude dirs and/or files: 
+[2.662s] -- Added test 'lint_cmake' to check CMake code style
+[2.673s] -- Added test 'uncrustify' to check C / C++ code style
+[2.673s] -- Configured uncrustify additional arguments: 
+[2.675s] -- Added test 'xmllint' to check XML markup files
+[2.679s] -- Configuring done
+[2.695s] -- Generating done
+[2.698s] -- Build files have been written to: /home/ataparlar/projects/leowork_ws/src/global_positioning/build/global_positioning
+[2.706s] Invoked command in '/home/ataparlar/projects/leowork_ws/src/global_positioning/build/global_positioning' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/galactic /usr/bin/cmake /home/ataparlar/projects/leowork_ws/src/global_positioning -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/ataparlar/projects/leowork_ws/src/global_positioning/install/global_positioning
+[2.710s] Invoking command in '/home/ataparlar/projects/leowork_ws/src/global_positioning/build/global_positioning': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/galactic /usr/bin/cmake --build /home/ataparlar/projects/leowork_ws/src/global_positioning/build/global_positioning -- -j8 -l8
+[2.759s] [35m[1mScanning dependencies of target gnss_odometry[0m
+[2.825s] [ 50%] [32mBuilding CXX object CMakeFiles/gnss_odometry.dir/src/gnss_odometry.cpp.o[0m
+[30.469s] [100%] [32m[1mLinking CXX executable gnss_odometry[0m
+[30.876s] [100%] Built target gnss_odometry
+[30.888s] Invoked command in '/home/ataparlar/projects/leowork_ws/src/global_positioning/build/global_positioning' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/galactic /usr/bin/cmake --build /home/ataparlar/projects/leowork_ws/src/global_positioning/build/global_positioning -- -j8 -l8
+[30.925s] Invoking command in '/home/ataparlar/projects/leowork_ws/src/global_positioning/build/global_positioning': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/galactic /usr/bin/cmake --install /home/ataparlar/projects/leowork_ws/src/global_positioning/build/global_positioning
+[30.934s] -- Install configuration: "RelWithDebInfo"
+[30.935s] -- Execute custom install script
+[30.935s] -- Symlinking: /home/ataparlar/projects/leowork_ws/src/global_positioning/install/global_positioning/lib/global_positioning/gnss_odometry
+[30.945s] -- Symlinking: /home/ataparlar/projects/leowork_ws/src/global_positioning/install/global_positioning/share/ament_index/resource_index/package_run_dependencies/global_positioning
+[30.955s] -- Symlinking: /home/ataparlar/projects/leowork_ws/src/global_positioning/install/global_positioning/share/ament_index/resource_index/parent_prefix_path/global_positioning
+[30.966s] -- Symlinking: /home/ataparlar/projects/leowork_ws/src/global_positioning/install/global_positioning/share/global_positioning/environment/ament_prefix_path.sh
+[30.975s] -- Symlinking: /home/ataparlar/projects/leowork_ws/src/global_positioning/install/global_positioning/share/global_positioning/environment/ament_prefix_path.dsv
+[30.985s] -- Symlinking: /home/ataparlar/projects/leowork_ws/src/global_positioning/install/global_positioning/share/global_positioning/environment/path.sh
+[30.995s] -- Symlinking: /home/ataparlar/projects/leowork_ws/src/global_positioning/install/global_positioning/share/global_positioning/environment/path.dsv
+[31.004s] -- Symlinking: /home/ataparlar/projects/leowork_ws/src/global_positioning/install/global_positioning/share/global_positioning/local_setup.bash
+[31.014s] -- Symlinking: /home/ataparlar/projects/leowork_ws/src/global_positioning/install/global_positioning/share/global_positioning/local_setup.sh
+[31.024s] -- Symlinking: /home/ataparlar/projects/leowork_ws/src/global_positioning/install/global_positioning/share/global_positioning/local_setup.zsh
+[31.034s] -- Symlinking: /home/ataparlar/projects/leowork_ws/src/global_positioning/install/global_positioning/share/global_positioning/local_setup.dsv
+[31.044s] -- Symlinking: /home/ataparlar/projects/leowork_ws/src/global_positioning/install/global_positioning/share/global_positioning/package.dsv
+[31.055s] -- Symlinking: /home/ataparlar/projects/leowork_ws/src/global_positioning/install/global_positioning/share/ament_index/resource_index/packages/global_positioning
+[31.065s] -- Symlinking: /home/ataparlar/projects/leowork_ws/src/global_positioning/install/global_positioning/share/global_positioning/cmake/global_positioningConfig.cmake
+[31.075s] -- Symlinking: /home/ataparlar/projects/leowork_ws/src/global_positioning/install/global_positioning/share/global_positioning/cmake/global_positioningConfig-version.cmake
+[31.084s] -- Symlinking: /home/ataparlar/projects/leowork_ws/src/global_positioning/install/global_positioning/share/global_positioning/package.xml
+[31.096s] Invoked command in '/home/ataparlar/projects/leowork_ws/src/global_positioning/build/global_positioning' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/galactic /usr/bin/cmake --install /home/ataparlar/projects/leowork_ws/src/global_positioning/build/global_positioning

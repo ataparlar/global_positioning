@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/ataparlar/projects/leowork_ws/src/global_positioning/build/global_positioning",
+  "command": "/usr/bin/c++  -DDEFAULT_RMW_IMPLEMENTATION=rmw_cyclonedds_cpp -DRCUTILS_ENABLE_FAULT_INJECTION -I/home/ataparlar/projects/leowork_ws/src/global_positioning/include -isystem /home/ataparlar/projects/leowork_ws/install/message_filters/include/message_filters -isystem /home/ataparlar/projects/leowork_ws/install/applanix_msgs/include -isystem /opt/ros/galactic/include  -O2 -g -DNDEBUG   -Wall -Wextra -Wpedantic -std=gnu++17 -o CMakeFiles/gnss_odometry.dir/src/gnss_odometry.cpp.o -c /home/ataparlar/projects/leowork_ws/src/global_positioning/src/gnss_odometry.cpp",
+  "file": "/home/ataparlar/projects/leowork_ws/src/global_positioning/src/gnss_odometry.cpp"
+}
+]

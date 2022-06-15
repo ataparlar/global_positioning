@@ -1,0 +1,16 @@
+/home/ataparlar/projects/leowork_ws/src/global_positioning/install/global_positioning/lib/global_positioning/gnss_odometry
+/home/ataparlar/projects/leowork_ws/src/global_positioning/install/global_positioning/share/ament_index/resource_index/package_run_dependencies/global_positioning
+/home/ataparlar/projects/leowork_ws/src/global_positioning/install/global_positioning/share/ament_index/resource_index/parent_prefix_path/global_positioning
+/home/ataparlar/projects/leowork_ws/src/global_positioning/install/global_positioning/share/global_positioning/environment/ament_prefix_path.sh
+/home/ataparlar/projects/leowork_ws/src/global_positioning/install/global_positioning/share/global_positioning/environment/ament_prefix_path.dsv
+/home/ataparlar/projects/leowork_ws/src/global_positioning/install/global_positioning/share/global_positioning/environment/path.sh
+/home/ataparlar/projects/leowork_ws/src/global_positioning/install/global_positioning/share/global_positioning/environment/path.dsv
+/home/ataparlar/projects/leowork_ws/src/global_positioning/install/global_positioning/share/global_positioning/local_setup.bash
+/home/ataparlar/projects/leowork_ws/src/global_positioning/install/global_positioning/share/global_positioning/local_setup.sh
+/home/ataparlar/projects/leowork_ws/src/global_positioning/install/global_positioning/share/global_positioning/local_setup.zsh
+/home/ataparlar/projects/leowork_ws/src/global_positioning/install/global_positioning/share/global_positioning/local_setup.dsv
+/home/ataparlar/projects/leowork_ws/src/global_positioning/install/global_positioning/share/global_positioning/package.dsv
+/home/ataparlar/projects/leowork_ws/src/global_positioning/install/global_positioning/share/ament_index/resource_index/packages/global_positioning
+/home/ataparlar/projects/leowork_ws/src/global_positioning/install/global_positioning/share/global_positioning/cmake/global_positioningConfig.cmake
+/home/ataparlar/projects/leowork_ws/src/global_positioning/install/global_positioning/share/global_positioning/cmake/global_positioningConfig-version.cmake
+/home/ataparlar/projects/leowork_ws/src/global_positioning/install/global_positioning/share/global_positioning/package.xml

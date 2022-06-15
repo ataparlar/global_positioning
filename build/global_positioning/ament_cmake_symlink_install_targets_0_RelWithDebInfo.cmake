@@ -1,0 +1,1 @@
+ament_cmake_symlink_install_targets("TARGET_FILES" "/home/ataparlar/projects/leowork_ws/src/global_positioning/build/global_positioning/gnss_odometry" "TARGETS" "gnss_odometry" "DESTINATION" "lib/global_positioning")
