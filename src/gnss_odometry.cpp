@@ -31,44 +31,47 @@ GnssOdometry::GnssOdometry() : Node("gnss_odometry")
 
     message_filters::Subscriber<applanix_msgs::msg::NavigationSolutionGsof49> lla_subscriber_time(
             this,
-            "lvx_client/gsof/ins_solution_49");
+            "/lvx_client/gsof/ins_solution_49");
 
 
-        message_filters::Subscriber<applanix_msgs::msg::NavigationPerformanceGsof50> rms_subscriber_time(
-                this,
-                "lvx_client/gsof/ins_solution_rms_50");
+    message_filters::Subscriber<applanix_msgs::msg::NavigationPerformanceGsof50> rms_subscriber_time(
+            this,
+            "/lvx_client/gsof/ins_solution_rms_50");
 
 
-//        GnssOdometry::syncApproximate(
-//                approximate_policy(10),
-//                lla_subscriber_time,
-//                rms_subscriber_time);
+//    message_filters::syncApproximate(
+//            approximate_policy(10),
+//            lla_subscriber_time,
+//            rms_subscriber_time);
 
-        message_filters::TimeSynchronizer<
-                applanix_msgs::msg::NavigationSolutionGsof49,
-                applanix_msgs::msg::NavigationPerformanceGsof50>
-                sync(
-                        lla_subscriber_time,
-                        rms_subscriber_time,
-                        10);
+    message_filters::Synchronizer<GnssOdometry::approximate_policy> syncApproximate(
+            approximate_policy(1000),
+            lla_subscriber_time,
+            rms_subscriber_time)
+            ;
 
 
-        sync.registerCallback(
-                std::bind(
-                        &GnssOdometry::gnss_pose_callback,
-                        this,
-                        std::placeholders::_1,
-                        std::placeholders::_2)); //
+//    syncApproximate.registerCallback(
+//            &GnssOdometry::gnss_pose_callback,
+//            this
+//    );
 
-        // lla_subscriber = this->create_subscription<applanix_msgs::msg::NavigationSolutionGsof49>(
-        //         "/lvx_client/gsof/ins_solution_49",
-        //         10,
-        //         std::bind(&GnssOdometry::lla_callback, this, _1));
-//
-        // rms_subscriber = this->create_subscription<applanix_msgs::msg::NavigationPerformanceGsof50>(
-        //         "/lvx_client/gsof/ins_solution_rms_50",
-        //         10,
-        //         std::bind(&GnssOdometry::rms_callback, this, _1));
+    syncApproximate.registerCallback(
+            std::bind(
+                    &GnssOdometry::gnss_pose_callback,
+                    this,
+                    std::placeholders::_1,
+                    std::placeholders::_2));
+
+
+//            message_filters::TimeSynchronizer<
+//                    applanix_msgs::msg::NavigationSolutionGsof49,
+//                    applanix_msgs::msg::NavigationPerformanceGsof50>
+//    sync(
+//            lla_subscriber_time,
+//            rms_subscriber_time,
+//            1000);
+
 
         gnss_pose_publisher = this->create_publisher<geometry_msgs::msg::PoseWithCovarianceStamped>(
                 "/gnss/pose",
@@ -86,28 +89,6 @@ GnssOdometry::GnssOdometry() : Node("gnss_odometry")
                 earth);
 
         RCLCPP_INFO(this->get_logger(), "array count '%d'", array_count);
-
-    // void rms_callback(const applanix_msgs::msg::NavigationPerformanceGsof50::SharedPtr msg) {
-    //     gnss_pose.pose.covariance = {
-    //             pow(msg->pos_rms_error.north, 2), 0, 0, 0, 0, 0,
-    //             0, pow(msg->pos_rms_error.east, 2), 0, 0, 0, 0,
-    //             0, 0, pow(msg->pos_rms_error.down, 2), 0, 0, 0,
-    //             0, 0, 0, pow(msg->attitude_rms_error_roll, 2), 0, 0,
-    //             0, 0, 0, 0, pow(msg->attitude_rms_error_pitch, 2), 0,
-    //             0, 0, 0, 0, 0, pow(msg->attitude_rms_error_heading, 2)
-    //     };
-    // };
-
-    // rclcpp::Subscription<applanix_msgs::msg::NavigationSolutionGsof49>::SharedPtr lla_subscriber;
-
-    // rclcpp::Subscription<applanix_msgs::msg::NavigationPerformanceGsof50>::SharedPtr rms_subscriber;
-
-    // rclcpp::Publisher<nav_msgs::msg::Path>::SharedPtr gnss_path_publisher;
-
-
-
-    // geometry_msgs::msg::PoseArray pose_array;
-
 
 }
 

@@ -29,9 +29,6 @@ class GnssOdometry : public rclcpp::Node
 public:
     GnssOdometry();
 
-
-
-
     typedef message_filters::sync_policies::ApproximateTime<
             applanix_msgs::msg::NavigationSolutionGsof49,
             applanix_msgs::msg::NavigationPerformanceGsof50> approximate_policy;
