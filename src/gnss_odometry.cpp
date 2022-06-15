@@ -29,14 +29,15 @@
 GnssOdometry::GnssOdometry() : Node("gnss_odometry")
 {
 
-    message_filters::Subscriber<applanix_msgs::msg::NavigationSolutionGsof49> lla_subscriber_time(
-            this,
-            "/lvx_client/gsof/ins_solution_49");
+//    message_filters::Subscriber<applanix_msgs::msg::NavigationSolutionGsof49> lla_subscriber_time(
+//            this,
+//            "/lvx_client/gsof/ins_solution_49");
+//
+//
+//    message_filters::Subscriber<applanix_msgs::msg::NavigationPerformanceGsof50> rms_subscriber_time(
+//            this,
+//            "/lvx_client/gsof/ins_solution_rms_50");
 
-
-    message_filters::Subscriber<applanix_msgs::msg::NavigationPerformanceGsof50> rms_subscriber_time(
-            this,
-            "/lvx_client/gsof/ins_solution_rms_50");
 
 
 //    message_filters::syncApproximate(
@@ -45,7 +46,7 @@ GnssOdometry::GnssOdometry() : Node("gnss_odometry")
 //            rms_subscriber_time);
 
     message_filters::Synchronizer<GnssOdometry::approximate_policy> syncApproximate(
-            approximate_policy(1000),
+            approximate_policy(10),
             lla_subscriber_time,
             rms_subscriber_time)
             ;
@@ -56,7 +57,19 @@ GnssOdometry::GnssOdometry() : Node("gnss_odometry")
 //            this
 //    );
 
-    syncApproximate.registerCallback(
+    GnssOdometry::lla_subscriber_time.subscribe(this, "/lvx_client/gsof/ins_solution_49");
+    GnssOdometry::rms_subscriber_time.subscribe(this, "/lvx_client/gsof/ins_solution_rms_50");
+
+    //GnssOdometry::ptr_subs.
+
+    sync_.reset(
+            new Sync(
+                    approximate_policy(10),
+                    GnssOdometry::lla_subscriber_time,
+                    GnssOdometry::rms_subscriber_time));
+
+
+    sync_->registerCallback(
             std::bind(
                     &GnssOdometry::gnss_pose_callback,
                     this,

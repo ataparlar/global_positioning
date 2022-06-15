@@ -33,6 +33,10 @@ public:
             applanix_msgs::msg::NavigationSolutionGsof49,
             applanix_msgs::msg::NavigationPerformanceGsof50> approximate_policy;
 
+    typedef message_filters::Synchronizer<approximate_policy> Sync;
+    std::shared_ptr<Sync> sync_;
+
+
 //    message_filters::Synchronizer<approximate_policy> syncApproximate(
 //            approximate_policy,
 //            message_filters::Subscriber<applanix_msgs::msg::NavigationSolutionGsof49>,
@@ -56,11 +60,12 @@ private:
             const applanix_msgs::msg::NavigationSolutionGsof49::ConstSharedPtr &msg,
             const applanix_msgs::msg::NavigationPerformanceGsof50::ConstSharedPtr &rms);
 
-//    message_filters::Subscriber<applanix_msgs::msg::NavigationSolutionGsof49> lla_subscriber_time;
-//    message_filters::Subscriber<applanix_msgs::msg::NavigationPerformanceGsof50> rms_subscriber_time;
+    message_filters::Subscriber<applanix_msgs::msg::NavigationSolutionGsof49> lla_subscriber_time;
+    message_filters::Subscriber<applanix_msgs::msg::NavigationPerformanceGsof50> rms_subscriber_time;
 
-
-
+//    std::unique_ptr<
+//            message_filters::Subscriber<applanix_msgs::msg::NavigationSolutionGsof49>,
+//            message_filters::Subscriber<applanix_msgs::msg::NavigationPerformanceGsof50>> ptr_subs;
 
 };
 
