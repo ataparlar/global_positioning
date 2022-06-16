@@ -11,11 +11,11 @@
 #include "geometry_msgs/msg/pose_with_covariance_stamped.hpp"
 #include "applanix_msgs/msg/navigation_solution_gsof49.hpp"
 #include "applanix_msgs/msg/navigation_performance_gsof50.hpp"
-#include "message_filters/sync_policies/approximate_time.h"
 #include "global_positioning/gnss_odometry.h"
 
 #include <GeographicLib/LocalCartesian.hpp>
 #include <GeographicLib/Geocentric.hpp>
+#include <GeographicLib/UTMUPS.hpp>
 
 
 GnssOdometry::GnssOdometry() : Node("gnss_odometry")
@@ -30,7 +30,7 @@ GnssOdometry::GnssOdometry() : Node("gnss_odometry")
 
     // synchronizer defined here with reset() function.
     // initialized with a new pointer object inside
-    // with appriximate policy
+    // with approximate policy
     sync_.reset(
             new Sync(
                     approximate_policy(10),
@@ -49,11 +49,19 @@ GnssOdometry::GnssOdometry() : Node("gnss_odometry")
     gnss_pose_publisher = this->create_publisher<geometry_msgs::msg::PoseWithCovarianceStamped>(
             "/gnss/pose",
             10);
+    gnss_pose_utm_publisher = this->create_publisher<geometry_msgs::msg::PoseWithCovarianceStamped>(
+            "/gnss/pose/utm",
+            10);
 
     // defined the earth model and local cartesian in order to
     // point an origin
     GeographicLib::Geocentric earth(GeographicLib::Constants::WGS84_a(), GeographicLib::Constants::WGS84_f());
     GeographicLib::LocalCartesian locart(
+            0,
+            0,
+            0,
+            earth);
+    GeographicLib::LocalCartesian utm_locart(
             0,
             0,
             0,
@@ -71,8 +79,22 @@ void GnssOdometry::gnss_pose_callback(
     // with the first message lat long altitude and orientation message
     if(array_count==0)
     {
-        GeographicLib::Geocentric earth(GeographicLib::Constants::WGS84_a(), GeographicLib::Constants::WGS84_f());
         locart.Reset(
+                msg->lla.latitude,
+                msg->lla.longitude,
+                msg->lla.altitude
+        );
+        GeographicLib::UTMUPS::Forward(
+                40.804618, // 40.81187906,
+                29.358831, // 29.35810110,
+                utm_zone,
+                utm_northp,
+                utm_x,
+                utm_y,
+                utm_gamma,
+                utm_k
+                );
+        utm_locart.Reset(
                 msg->lla.latitude,
                 msg->lla.longitude,
                 msg->lla.altitude
@@ -91,6 +113,8 @@ void GnssOdometry::gnss_pose_callback(
         RCLCPP_INFO(this->get_logger(), "quaternion y: '%f'", q.getY());
         RCLCPP_INFO(this->get_logger(), "quaternion z: '%f'", q.getZ());
         RCLCPP_INFO(this->get_logger(), "quaternion w: '%f'", q.getW());
+        RCLCPP_INFO(this->get_logger(), "X_global: '%f'", utm_x );
+        RCLCPP_INFO(this->get_logger(), "Y_global: '%f'", utm_y );
 
         array_count++;
     }
@@ -98,27 +122,51 @@ void GnssOdometry::gnss_pose_callback(
     // as a message which contains the position and orientation information
     else
     {
+        GeographicLib::UTMUPS::Forward(
+                msg->lla.latitude,
+                msg->lla.longitude,
+                utm_zone,
+                utm_northp,
+                utm_x,
+                utm_y,
+                utm_gamma,
+                utm_k
+        );
+//        RCLCPP_INFO(this->get_logger(), "X_global: '%f'", utm_x );
+//        RCLCPP_INFO(this->get_logger(), "Y_global: '%f'", utm_y );
+
         locart.Forward(msg->lla.latitude,
                        msg->lla.longitude,
                        msg->lla.altitude,
                        x,
                        y,
                        z);
+        utm_locart.Forward(msg->lla.latitude,
+                           msg->lla.longitude,
+                           47.62,
+                       utm_x,
+                       utm_y,
+                       utm_z);
 
         q.setRPY(M_PI*(msg->roll)/180,
                  M_PI*(msg->pitch)/180,
                  M_PI*(msg->heading)/180);
 
+//        RCLCPP_INFO(this->get_logger(), "X: '%f'", utm_x );
+//        RCLCPP_INFO(this->get_logger(), "Y: '%f'", utm_y );
+//        RCLCPP_INFO(this->get_logger(), "utm_zone: '%d'", utm_zone );
+//        RCLCPP_INFO(this->get_logger(), "utm_northp: '%d'", utm_northp );
+//
+//        RCLCPP_INFO(this->get_logger(), "X: '%f'", x );
+//        RCLCPP_INFO(this->get_logger(), "Y: '%f'", y );
+//        RCLCPP_INFO(this->get_logger(), "Z: '%f'", z );
+//        RCLCPP_INFO(this->get_logger(), "quaternion x: '%f'", q.getX());
+//        RCLCPP_INFO(this->get_logger(), "quaternion y: '%f'", q.getY());
+//        RCLCPP_INFO(this->get_logger(), "quaternion z: '%f'", q.getZ());
+//        RCLCPP_INFO(this->get_logger(), "quaternion w: '%f'", q.getW());
+//        RCLCPP_INFO(this->get_logger(), "------ \n");
 
-        RCLCPP_INFO(this->get_logger(), "X: '%f'", x );
-        RCLCPP_INFO(this->get_logger(), "Y: '%f'", y );
-        RCLCPP_INFO(this->get_logger(), "Z: '%f'", z );
-        RCLCPP_INFO(this->get_logger(), "quaternion x: '%f'", q.getX());
-        RCLCPP_INFO(this->get_logger(), "quaternion y: '%f'", q.getY());
-        RCLCPP_INFO(this->get_logger(), "quaternion z: '%f'", q.getZ());
-        RCLCPP_INFO(this->get_logger(), "quaternion w: '%f'", q.getW());
-        RCLCPP_INFO(this->get_logger(), "------ \n");
-
+        // wgs84 coordinate system part
         gnss_pose.header.frame_id = "map";
         gnss_pose.header.stamp = this->get_clock()->now();
 
@@ -142,9 +190,32 @@ void GnssOdometry::gnss_pose_callback(
 
         gnss_pose_publisher->publish(gnss_pose);
 
+        // utm coordinate_system part
+        gnss_pose_utm.header.frame_id = "map";
+        gnss_pose_utm.header.stamp = this->get_clock()->now();
 
+        gnss_pose_utm.pose.pose.position.x = utm_x;
+        gnss_pose_utm.pose.pose.position.y = utm_y;
+        gnss_pose_utm.pose.pose.position.z = utm_z;
+
+        gnss_pose_utm.pose.pose.orientation.x = q.getX();
+        gnss_pose_utm.pose.pose.orientation.y = q.getY();
+        gnss_pose_utm.pose.pose.orientation.z = q.getZ();
+        gnss_pose_utm.pose.pose.orientation.w = q.getW();
+
+        gnss_pose_utm.pose.covariance = {
+                pow(rms->pos_rms_error.north, 2), 0, 0, 0, 0, 0,
+                0, pow(rms->pos_rms_error.east, 2), 0, 0, 0, 0,
+                0, 0, pow(rms->pos_rms_error.down, 2), 0, 0, 0,
+                0, 0, 0, pow(rms->attitude_rms_error_roll, 2), 0, 0,
+                0, 0, 0, 0, pow(rms->attitude_rms_error_pitch, 2), 0,
+                0, 0, 0, 0, 0, pow(rms->attitude_rms_error_heading, 2)
+        };
+
+        gnss_pose_utm_publisher->publish(gnss_pose_utm);
     }
 }
+
 
 int main(int argc, char * argv[])
 {

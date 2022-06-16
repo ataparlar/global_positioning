@@ -20,7 +20,7 @@
 
 #include <GeographicLib/LocalCartesian.hpp>
 #include <GeographicLib/Geocentric.hpp>
-
+#include <GeographicLib/UTMUPS.hpp>
 
 
 class GnssOdometry : public rclcpp::Node
@@ -55,21 +55,28 @@ private:
 
     // local cartesian coordinate system declared
     GeographicLib::LocalCartesian locart;
+    GeographicLib::LocalCartesian utm_locart;
 
     // earth model for local cartesian is declared
     GeographicLib::Geocentric earth;
+    // GeographicLib::UTMUPS utm;
 
     // some variables for local cartesian calculations
     double x, y, z;
+    double utm_x, utm_y, utm_z, utm_gamma, utm_k;
+    bool utm_northp = false;
+    int utm_zone;
     int array_count;
 
     // quaternion declared for posewithcovariancestamped message
     tf2::Quaternion q;
     // posewithcovariancestamped message declared
     geometry_msgs::msg::PoseWithCovarianceStamped gnss_pose;
+    geometry_msgs::msg::PoseWithCovarianceStamped gnss_pose_utm;
 
     // ROS2 publisher declared
     rclcpp::Publisher<geometry_msgs::msg::PoseWithCovarianceStamped>::SharedPtr gnss_pose_publisher;
+    rclcpp::Publisher<geometry_msgs::msg::PoseWithCovarianceStamped>::SharedPtr gnss_pose_utm_publisher;
 
 };
 
