@@ -53,20 +53,30 @@ private:
     message_filters::Subscriber<applanix_msgs::msg::NavigationSolutionGsof49> lla_subscriber_time;
     message_filters::Subscriber<applanix_msgs::msg::NavigationPerformanceGsof50> rms_subscriber_time;
 
-    // local cartesian coordinate system declared
-    GeographicLib::LocalCartesian locart;
-    GeographicLib::LocalCartesian utm_locart;
+    struct UTMOrigin{
+        double X;
+        double Y;
+        double gamma;
+        double k;
+        bool northp;
+        int zone;
+    };
+    UTMOrigin utm_origin;
+
+    struct WGSLocal{
+        // some variables for local cartesian calculations
+        double x;
+        double y;
+        double z;
+    };
+    WGSLocal wgs_local;
+
+    bool is_first_msg = true;
+
 
     // earth model for local cartesian is declared
     GeographicLib::Geocentric earth;
-    // GeographicLib::UTMUPS utm;
-
-    // some variables for local cartesian calculations
-    double x, y, z;
-    double utm_x, utm_y, utm_z, utm_gamma, utm_k;
-    bool utm_northp = false;
-    int utm_zone;
-    int array_count;
+    GeographicLib::LocalCartesian locart;
 
     // quaternion declared for posewithcovariancestamped message
     tf2::Quaternion q;
