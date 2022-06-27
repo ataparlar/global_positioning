@@ -13,8 +13,6 @@
 #include "applanix_msgs/msg/navigation_performance_gsof50.hpp"
 #include "global_positioning/gnss_odometry.h"
 
-#include <GeographicLib/LocalCartesian.hpp>
-#include <GeographicLib/Geocentric.hpp>
 #include <GeographicLib/UTMUPS.hpp>
 
 
@@ -55,14 +53,7 @@ GnssOdometry::GnssOdometry() : Node("gnss_odometry")
 
     // defined the earth model and local cartesian in order to
     // point an origin
-    GeographicLib::Geocentric earth(GeographicLib::Constants::WGS84_a(), GeographicLib::Constants::WGS84_f());
-    GeographicLib::LocalCartesian locart(
-            0,
-            0,
-            0,
-            earth);
 
-    RCLCPP_INFO(this->get_logger(), "is_first_msg '%d'", is_first_msg);
 }
 
 // defined the callback function out of the constructor
@@ -80,6 +71,9 @@ void GnssOdometry::gnss_pose_callback(
                 msg->lla.longitude,
                 msg->lla.altitude
         );
+
+        // set the origin of the UTM local coordinate system
+        // used Forward because of the local coordinate calculation of UTM
         GeographicLib::UTMUPS::Forward(
                 40.81187906,
                 29.35810110,
@@ -111,9 +105,12 @@ void GnssOdometry::gnss_pose_callback(
                        wgs_local.y,
                        wgs_local.z);
 
+
         // UTM global coordinates conversation
         double utm_x;
         double utm_y;
+        double utm_local_lat;
+        double utm_local_long;
         GeographicLib::UTMUPS::Forward(
                 msg->lla.latitude,
                 msg->lla.longitude,
@@ -125,30 +122,36 @@ void GnssOdometry::gnss_pose_callback(
                 utm_origin.k
         );
 
+
+//        RCLCPP_INFO(this->get_logger(), "Local Coordinates in UTM");
+//        RCLCPP_INFO(this->get_logger(), "UTM - LAT: '%f'", utm_local_lat );
+//        RCLCPP_INFO(this->get_logger(), "UTM - LONG: '%f'", utm_local_long );
+
+
         q.setRPY(M_PI*(msg->roll)/180,
                  M_PI*(msg->pitch)/180,
                  M_PI*(msg->heading)/180);
 
 
-        RCLCPP_INFO(this->get_logger(), "Local Coordinates in WGS84");
-        RCLCPP_INFO(this->get_logger(), "WGS84 - X: '%f'", wgs_local.x );
-        RCLCPP_INFO(this->get_logger(), "WGS84 - Y: '%f'", wgs_local.y );
-        RCLCPP_INFO(this->get_logger(), "WGS84 - Z: '%f'", wgs_local.z );
-        RCLCPP_INFO(this->get_logger(), "------");
-
-        RCLCPP_INFO(this->get_logger(), "Local Coordinates in UTM");
-        RCLCPP_INFO(this->get_logger(), "UTM - X: '%f'", utm_x - utm_origin.X );
-        RCLCPP_INFO(this->get_logger(), "UTM - Y: '%f'", utm_y - utm_origin.Y );
-        RCLCPP_INFO(this->get_logger(), "------");
-
-        RCLCPP_INFO(this->get_logger(), "Orientation");
-        RCLCPP_INFO(this->get_logger(), "quaternion x: '%f'", q.getX());
-        RCLCPP_INFO(this->get_logger(), "quaternion y: '%f'", q.getY());
-        RCLCPP_INFO(this->get_logger(), "quaternion z: '%f'", q.getZ());
-        RCLCPP_INFO(this->get_logger(), "quaternion w: '%f'", q.getW());
-        RCLCPP_INFO(this->get_logger(), "------");
-        RCLCPP_INFO(this->get_logger(), "------");
-        RCLCPP_INFO(this->get_logger(), "------ \n");
+//        RCLCPP_INFO(this->get_logger(), "Local Coordinates in WGS84");
+//        RCLCPP_INFO(this->get_logger(), "WGS84 - X: '%f'", wgs_local.x );
+//        RCLCPP_INFO(this->get_logger(), "WGS84 - Y: '%f'", wgs_local.y );
+//        RCLCPP_INFO(this->get_logger(), "WGS84 - Z: '%f'", wgs_local.z );
+//        RCLCPP_INFO(this->get_logger(), "------");
+//
+//        RCLCPP_INFO(this->get_logger(), "Local Coordinates in UTM");
+//        RCLCPP_INFO(this->get_logger(), "UTM - X: '%f'", utm_x - utm_origin.X );
+//        RCLCPP_INFO(this->get_logger(), "UTM - Y: '%f'", utm_y - utm_origin.Y );
+//        RCLCPP_INFO(this->get_logger(), "------");
+//
+//        RCLCPP_INFO(this->get_logger(), "Orientation");
+//        RCLCPP_INFO(this->get_logger(), "quaternion x: '%f'", q.getX());
+//        RCLCPP_INFO(this->get_logger(), "quaternion y: '%f'", q.getY());
+//        RCLCPP_INFO(this->get_logger(), "quaternion z: '%f'", q.getZ());
+//        RCLCPP_INFO(this->get_logger(), "quaternion w: '%f'", q.getW());
+//        RCLCPP_INFO(this->get_logger(), "------");
+//        RCLCPP_INFO(this->get_logger(), "------");
+//        RCLCPP_INFO(this->get_logger(), "------ \n");
 
         // wgs84 local coordinate system part
         gnss_pose.header.frame_id = "map";
@@ -200,6 +203,7 @@ void GnssOdometry::gnss_pose_callback(
         };
 
         gnss_pose_utm_publisher->publish(gnss_pose_utm);
+
     }
 }
 

@@ -21,7 +21,7 @@
 #include <GeographicLib/LocalCartesian.hpp>
 #include <GeographicLib/Geocentric.hpp>
 #include <GeographicLib/UTMUPS.hpp>
-
+#include <GeographicLib/GeoCoords.hpp>
 
 class GnssOdometry : public rclcpp::Node
 {
@@ -42,7 +42,7 @@ private:
             applanix_msgs::msg::NavigationSolutionGsof49,
             applanix_msgs::msg::NavigationPerformanceGsof50> approximate_policy;
 
-    // made a synchronizer type which uses appriximate policy
+    // made a synchronizer type which uses approximate policy
     typedef message_filters::Synchronizer<approximate_policy> Sync;
 
     // make this synchronizer a shared_ptr in order to reach the callback function
@@ -70,6 +70,8 @@ private:
         double z;
     };
     WGSLocal wgs_local;
+    WGSLocal wgs_local_origin;
+
 
     bool is_first_msg = true;
 
